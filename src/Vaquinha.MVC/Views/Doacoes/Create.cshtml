@@ -1,0 +1,142 @@
+﻿@model Vaquinha.Domain.ViewModels.DoacaoViewModel
+
+@{
+    ViewData["Title"] = "Doar agora";
+}
+
+<div class="card" style="width: 18rem;">
+    <form asp-action="Create" asp-controller="Doacoes" method="post">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Doe agora</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <label asp-for="Valor" class="control-label"></label>
+                        <input asp-for="Valor" id="valor" placeholder="Valor doação" class="form-control" />
+                    </div>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-6">
+                    <div class="card-body">
+                        <h5 class="card-title">Dados Pessoais</h5>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="form-group">
+                                <input asp-for="DadosPessoais.Nome" placeholder="Nome Completo" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <input asp-for="DadosPessoais.Email" placeholder="Email" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <textarea asp-for="DadosPessoais.MensagemApoio" class="form-control" rows="3" maxlength="200"
+                                          placeholder="Deixa aqui uma mensagem de apoio" data-val="true"></textarea>
+                            </div>
+
+                            <div class="form-group float-right">
+                                <label asp-for="DadosPessoais.Anonima" class="control-label"></label>
+                                <input asp-for="DadosPessoais.Anonima" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6">
+                    <div class="card-body">
+                        <h5 class="card-title">Endereço de Cobrança</h5>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.TextoEndereco" maxlength="100" placeholder="Endereço" class="form-control small" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.Numero" placeholder="Número" class="form-control small" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.Cidade" placeholder="Cidade" class="form-control small" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.Estado" placeholder="Estado" id="estado" class="form-control small" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.CEP" id="cep" placeholder="CEP" class="form-control small" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input asp-for="EnderecoCobranca.Complemento" placeholder="Complemento" class="form-control small" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input asp-for="EnderecoCobranca.Telefone" id="telefone" placeholder="Telefone" class="form-control small" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+            <div class="card-body">
+                <h5 class="card-title">Dados para pagamento</h5>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <input asp-for="FormaPagamento.NomeTitular" placeholder="Nome do Titular" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <input asp-for="FormaPagamento.NumeroCartaoCredito" id="cardNumber" placeholder="Numero do Cartão" class="form-control" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-for="FormaPagamento.Validade" id="validade" placeholder="Data de validade" class="form-control small" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-for="FormaPagamento.CVV" id="cvv" placeholder="CVV" class="form-control small" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="text-center mt-4">
+                <div class="form-group">
+                    <input type="submit" value="Doar" class="btn btn-danger pl-5 pr-5 p-3" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
